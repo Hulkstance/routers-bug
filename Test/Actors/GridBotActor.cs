@@ -14,15 +14,19 @@ public sealed class GridBotActor : IActor
         switch (context.Message)
         {
             case Started:
-                _logger.LogWarning("Grid bot started");
+                _logger.LogDebug("Grid bot started");
                 break;
 
             case PriceUpdated { Symbol: var symbol, Price: var newPrice }:
-                _logger.LogWarning("Price updated for {Symbol} to {NewPrice}", symbol, newPrice);
+                _logger.LogDebug("Price updated for {Symbol} to {NewPrice}", symbol, newPrice);
+                break;
+
+            case PriceChange { Symbol: var symbol, Price: var newPrice }:
+                _logger.LogDebug("Broadcast price updated for {Symbol} to {NewPrice}", symbol, newPrice);
                 break;
 
             case string msg:
-                _logger.LogError("Message: {Message}", msg);
+                _logger.LogDebug("Message: {Message}", msg);
                 break;
         }
 

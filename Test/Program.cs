@@ -10,7 +10,7 @@ var logger = new LoggerConfiguration()
 builder.Host.UseSerilog(logger);
 
 builder.Services.AddActorSystem();
-builder.Services.AddHostedService<ActorSpawnerHostedService>();
+builder.Services.AddHostedService<ActorSpawnerHostedService2>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
